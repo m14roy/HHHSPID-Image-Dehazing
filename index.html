@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Give Paper Name Afterwards."
+    />
+
+    <!--tab setting-->
+    <title>Dehazing</title>
+    <link rel="icon" type="image/png" href="icon/tablogo.png" />
+    
+    <!--font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+
+    <!--slider-->
+    <link rel="stylesheet" href="css/twentytwenty.css"/>
+
+    <!--linking css-->
+    <!--link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"-->
+    <link rel="stylesheet" href="css/style.css" />
+    
+
+  </head>
+
+  <body>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.event.move.js"></script>
+    <script type="text/javascript" src="js/jquery.twentytwenty.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+
+<!--------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="navbar">
+      <a href="#home">Contact</a>
+      <a href="#Citation">Citation</a>
+      <a href="#Downloads">Download</a>
+      <a href="#Resultsfull">Result</a>
+      <div class="dropdown">
+        <button class="dropbtn">Goto 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#Abstract">Abstract</a>
+          <a href="#Framework">Framework</a>
+          <a href="#Highlights">Highlights</a>
+        </div>
+      </div> 
+      <a href="#home">Home</a> 
+    </div>
+
+<!--------------------------------------------------------------------------------------------------------------------------------->
+    
+    <header>
+      <h1>
+        Haze Hue and Haze Saturation Priors for Single Image Dehazing
+      </h1>
+      <p>
+        Sobhan Kanti Dhara, Mayukh Roy, Debashis Sen
+      </p>
+      <p>
+        Department of Electronics and Electrical Communication Engineering<br>
+        Indian Institute of Technology, Kharagpur, India.
+      </p>
+    </header>
+
+<!--------------------------------------------------------------------------------------------------------------------------------->
+
+    <p id="slider_info">
+        Use the slider to compare input and dehazed output.
+    </p>
+    
+    <div class="slider_grid">
+      <div class="grid-item">
+        <!--<a href="img/0006.png" target="_blank"><img src="img/0006.png" alt="TestImage1"></a>-->
+        <div class="sliders">
+         <!-- The before image is first -->
+         <img src="img/slider/cityscape_input.png" alt="TestImage1" />
+         <!-- The after image is last -->
+         <img src="img/slider/cityscape_input_Result.png" alt="TestImage2"/>
+        </div>
+      </div>
+      <div class="grid-item">
+        <!--<a href="img/0007.png" target="_blank"><img src="img/0007.png" alt="TestImage2"></a>-->
+        <div class="sliders">
+         <!-- The before image is first -->
+         <img src="img/slider//MLS_Google_585.png" alt="TestImage1"/>
+         <!-- The after image is last -->
+         <img src="img/slider//MLS_Google_585_Result.png" alt="TestImage2"/>
+        </div>
+      </div>
+      <div class="grid-item">
+        <!--<a href="img/0008.png" target="_blank"><img src="img/0008.png" alt="TestImage3"></a>-->
+        <div class="sliders">
+         <!-- The before image is first -->
+         <img src="img/slider//Fig_16.png" alt="TestImage1"/>
+         <!-- The after image is last -->
+         <img src="img/slider//Fig_16_Result.png" alt="TestImage2"/>
+        </div>
+      </div>  
+    </div>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="Abstract"  id="Abstract">
+      <img id="Abstract_icon" src="icon/Abstracticon.png" alt="Abstracticon">
+      <h2>
+        Abstract
+      </h2>
+      
+      <p style="text-align: justify;">
+        <nobr>Due to </nobr>scattering and absorption by suspended particles in hazy atmospheres, images captured suffer from visibility attenuation, 
+        low contrast and color cast issues. Handling a wide variety of hazy conditions with such degradations to reduce haze in images 
+        is a challenging  task. In this regard, our paper proposes a novel image dehazing framework based on new hazy image priors, namely,
+        the Haze Hue Prior and the Haze Saturation Prior. The Haze Hue Prior (HHP) presents distinguishing properties of hue in non-color-cast 
+        and color-cast hazy images, which is exploited to classify hazy images into these two categories. The Haze Saturation Prior (HSP) 
+        provides characteristic properties of saturation in hazy conditions, which is utilized to handle color distortion. The proposed 
+        framework also leverages a novel foreground-aware strategy to compute the atmospheric light and a depth-aware strategy to estimate
+        the transmission map, which are then used in the standard atmospheric light scattering model to achieve dehazing. Extensive quantitative
+        evaluations demonstrate that our proposed framework outperforms the state-of-the-art across a wide range of natural and synthetic hazy images.
+        Subjective evaluations show that our proposed framework effectively removes color cast, significantly reduces haze, and preserves the natural 
+        image appearance without introducing noticeable distortion.
+      </p>
+      
+    </div>
+
+<!--------------------------------------------------------------------------------------------------------------------------------->
+    
+    <div id="Framework" class="Framework">
+      <img id="Framework_icon" src="icon/Frameworkicon.png" alt="Frameworkicon">
+      <h2>
+        Framework
+      </h2>
+      
+      <p style="text-align: justify;">
+      <nobr>In this paper, </nobr>we propose an approach based on atmospheric light relevant priors for dehazing hazy images that may contain color cast. 
+      To this end, we design novel hazy image priors, namely, haze hue prior (HHP) and haze saturation prior (HSP), which represent haze 
+      induced image conditions related to the atmospheric light parameter of  Koschmieder's  model. These proposed priors are not mere 
+      assumptions but represent facts, which are theoretically and empirically proved. In our dehazing approach, HHP is first employed to 
+      categorize a hazy image as a color cast or a non-cast one. Then, a color cast hazy image is subjected to a novel color correction 
+      procedure based on HSP to diminish the cast. A foreground-aware approach is then proposed to estimate the atmospheric light from the 
+      color corrected hazy image or the non-cast hazy image. Transmission values are then computed using the atmospheric light estimate and 
+      applying a fast weighted regularized least squares solver on the dark channel of the color corrected or non-cast hazy image. The computed 
+      transmission and atmospheric light values are finally used in the Koschmieder's  model corresponding to the color corrected or non-cast hazy
+      image to get the restored image. Qualitative and quantitative evaluation using standard datasets and measures show the effectiveness of our approach in classifying hazy images, in diminishing color cast and 
+      reducing haze, and in producing visibility-improved natural looking dehazed images. The proposed approach performs well for both real-world and 
+      synthetically generated hazy images, and is found to outperform the state-of-the-art.
+      </p>
+      
+      <img id="Framework" src="img/Flowchart.png" alt="Framework">
+      
+    </div>
+    
+<!--------------------------------------------------------------------------------------------------------------------------------->
+    
+    <div class="Highlights" id="Highlights">
+      <img id="Highlights_icon" src="icon/Highlightsicon.png" alt="Highlightsicon">
+      <h2>
+        Highlights
+      </h2>
+      
+      <p>
+      <nobr>The main novelties</nobr> and contributions of the paper are:<br>
+      <ul>
+        <li>We are the first to introduce and theoretically prove the Haze Hue Prior (HHP), 
+        which explains properties of hue in the presence of  non-cast and color-cast hazy images. 
+        This prior and the novel insight allow us to effectively classify hazy images into these two 
+        categories, demonstrating the effectiveness of HHP.</li>
+        <li>We are the first to introduce and theoretically prove the Haze Saturation Prior (HSP), 
+        which states properties of saturation in hazy conditions. This prior is then leveraged to 
+        effectively address and correct color distortion in hazy images, whenever required.</li>
+        <li>We propose a novel foreground-aware strategy for atmospheric light estimation, 
+        enabling effective dehazing across a wide range of hazy conditions.</li>
+      </ul>
+      </p>
+      
+    </div>
+    
+<!--------------------------------------------------------------------------------------------------------------------------------->    
+    <div id="Resultsfull">
+    
+    <img id="Results_icon" src="icon/Resulticon.png" alt="Resultsicon">
+    <h2>
+      Comparison of Results
+    </h2>
+    
+    <div id="realresultstotal">
+    <h3>
+      <nobr>Real World</nobr> Hazy Images
+    </h3>
+
+    <p>
+      Hover on Results for Better View.
+    </p>
+
+    <div class="realresults">
+    
+      <div class="mySlides">
+        <div class="compareinputs">
+          <a href="img/real/input/Fig_16.png" target="_blank"><img src="img/real/input/Fig_16.png" alt="Input_1"></a><br>
+          <p>Input</p>
+        </div>
+        <div class="comparegridreal">
+          <div class="comparegrid-item">
+            <a href="img/real/ALC/Fig_16_Result.png" target="_blank"><img src="img/real/ALC/Fig_16_Result.png" alt="ALC_1"></a><br>
+            <p>ALC</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/FSID/Fig_16.png" target="_blank"><img src="img/real/FSID/Fig_16.png" alt="FSID_1"></a><br>
+            <p>FSID</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/MSBDN/Fig_16_MSBDN.png" target="_blank"><img src="img/real/MSBDN/Fig_16_MSBDN.png" alt="MSBDN_1"></a><br>
+            <p>MSBDN</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DDCP/Fig_16.png" target="_blank"><img src="img/real/DDCP/Fig_16.png" alt="DDCP_1"></a><br>
+            <p>D-DCP</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/PSD/Fig_16_Result.png" target="_blank"><img src="img/real/PSD/Fig_16_Result.png" alt="PSD_1"></a><br>
+            <p>PSD</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/LDNet/Fig_16_Result_LDN.png" target="_blank"><img src="img/real/LDNet/Fig_16_Result_LDN.png" alt="LDNet_1"></a><br>
+            <p>LDNet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/SGID/Fig_16_Result_SGID.png" target="_blank"><img src="img/real/SGID/Fig_16_Result_SGID.png" alt="SGID_1"></a><br>
+            <p>SGID</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/D4/Fig_16.png" target="_blank"><img src="img/real/D4/Fig_16.png" alt="D4_1"></a><br>
+            <p>D4</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DeHamer/Fig_16.png" target="_blank"><img src="img/real/DeHamer/Fig_16.png" alt="DeHamer_1"></a><br>
+            <p>DeHamer</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/MBTF/Fig_16.png" target="_blank"><img src="img/real/MBTF/Fig_16.png" alt="MBTF_1"></a><br>
+            <p>MB-TF</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/TOENET/Fig_16_TOENet.png" target="_blank"><img src="img/real/TOENET/Fig_16_TOENet.png" alt="TOENET_1"></a><br>
+            <p>TOENet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DEANET/Fig_16.png" target="_blank"><img src="img/real/DEANET/Fig_16.png" alt="DEANET_1"></a><br>
+            <p>DEANet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/Ours/Fig_16_Result.png" target="_blank"><img src="img/real/Ours/Fig_16_Result.png" alt="Ours_1"></a><br>
+            <p>Ours</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mySlides">
+        <div class="compareinputs">
+          <a href="img/real/input/MLS_Google_585.png" target="_blank"><img src="img/real/input/MLS_Google_585.png" alt="Input_2"></a><br>
+          <p>Input</p>
+        </div>
+        <div class="comparegridreal">
+          <div class="comparegrid-item">
+            <a href="img/real/ALC/MLS_Google_585_Result.png" target="_blank"><img src="img/real/ALC/MLS_Google_585_Result.png" alt="ALC_2"></a><br>
+            <p>ALC</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/FSID/MLS_Google_585.png" target="_blank"><img src="img/real/FSID/MLS_Google_585.png" alt="FSID_2"></a><br>
+            <p>FSID</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/MSBDN/MLS_Google_585_MSBDN.png" target="_blank"><img src="img/real/MSBDN/MLS_Google_585_MSBDN.png" alt="MSBDN_2"></a><br>
+            <p>MSBDN</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DDCP/MLS_Google_585.png" target="_blank"><img src="img/real/DDCP/MLS_Google_585.png" alt="DDCP_2"></a><br>
+            <p>D-DCP</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/PSD/MLS_Google_585_Result.png" target="_blank"><img src="img/real/PSD/MLS_Google_585_Result.png" alt="PSD_2"></a><br>
+            <p>PSD</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/LDNet/MLS_Google_585_Result_LDN.png" target="_blank"><img src="img/real/LDNet/MLS_Google_585_Result_LDN.png" alt="LDNet_2"></a><br>
+            <p>LDNet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/SGID/MLS_Google_585_Result_SGID.png" target="_blank"><img src="img/real/SGID/MLS_Google_585_Result_SGID.png" alt="SGID_2"></a><br>
+            <p>SGID</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/D4/MLS_Google_585.png" target="_blank"><img src="img/real/D4/MLS_Google_585.png" alt="D4_2"></a><br>
+            <p>D4</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DeHamer/MLS_Google_585.png" target="_blank"><img src="img/real/DeHamer/MLS_Google_585.png" alt="DeHamer_2"></a><br>
+            <p>DeHamer</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/MBTF/MLS_Google_585.png" target="_blank"><img src="img/real/MBTF/MLS_Google_585.png" alt="MBTF_2"></a><br>
+            <p>MB-TF</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/TOENET/MLS_Google_585_TOENet.png" target="_blank"><img src="img/real/TOENET/MLS_Google_585_TOENet.png" alt="TOENET_2"></a><br>
+            <p>TOENet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DEANET/MLS_Google_585.png" target="_blank"><img src="img/real/DEANET/MLS_Google_585.png" alt="DEANET_2"></a><br>
+            <p>DEANet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/Ours/MLS_Google_585_Result.png" target="_blank"><img src="img/real/Ours/MLS_Google_585_Result.png" alt="Ours_2"></a><br>
+            <p>Ours</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mySlides">
+        <div class="compareinputs">
+          <a href="img/real/input/cityscape_input.png" target="_blank"><img src="img/real/input/cityscape_input.png" alt="Input_3"></a><br>
+          <p>Input</p>
+        </div>
+        <div class="comparegridreal">
+          <div class="comparegrid-item">
+            <a href="img/real/ALC/cityscape_input_Result.png" target="_blank"><img src="img/real/ALC/cityscape_input_Result.png" alt="ALC_3"></a><br>
+            <p>ALC</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/FSID/cityscape_input.png" target="_blank"><img src="img/real/FSID/cityscape_input.png" alt="FSID_3"></a><br>
+            <p>FSID</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/MSBDN/cityscape_input_MSBDN.png" target="_blank"><img src="img/real/MSBDN/cityscape_input_MSBDN.png" alt="MSBDN_3"></a><br>
+            <p>MSBDN</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DDCP/cityscape_input.png" target="_blank"><img src="img/real/DDCP/cityscape_input.png" alt="DDCP_3"></a><br>
+            <p>D-DCP</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/PSD/cityscape_input_Result.png" target="_blank"><img src="img/real/PSD/cityscape_input_Result.png" alt="PSD_3"></a><br>
+            <p>PSD</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/LDNet/cityscape_input_Result_LDN.png" target="_blank"><img src="img/real/LDNet/cityscape_input_Result_LDN.png" alt="LDNet_3"></a><br>
+            <p>LDNet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/SGID/cityscape_input_Result_SGID.png" target="_blank"><img src="img/real/SGID/cityscape_input_Result_SGID.png" alt="SGID_3"></a><br>
+            <p>SGID</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/D4/cityscape_input.png" target="_blank"><img src="img/real/D4/cityscape_input.png" alt="D4_3"></a><br>
+            <p>D4</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DeHamer/cityscape_input.png" target="_blank"><img src="img/real/DeHamer/cityscape_input.png" alt="DeHamer_3"></a><br>
+            <p>DeHamer</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/MBTF/cityscape_input.png" target="_blank"><img src="img/real/MBTF/cityscape_input.png" alt="MBTF_3"></a><br>
+            <p>MB-TF</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/TOENET/cityscape_input_TOENet.png" target="_blank"><img src="img/real/TOENET/cityscape_input_TOENet.png" alt="TOENET_3"></a><br>
+            <p>TOENet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DEANET/cityscape_input.png" target="_blank"><img src="img/real/DEANET/cityscape_input.png" alt="DEANET_3"></a><br>
+            <p>DEANet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/Ours/cityscape_input_Result.png" target="_blank"><img src="img/real/Ours/cityscape_input_Result.png" alt="Ours_3"></a><br>
+            <p>Ours</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mySlides">
+        <div class="compareinputs">
+          <a href="img/real/input/5917463232_51d1cb1f21_z_input.png" target="_blank"><img src="img/real/input/5917463232_51d1cb1f21_z_input.png" alt="Input_4"></a><br>
+          <p>Input</p>
+        </div>
+        <div class="comparegridreal">
+          <div class="comparegrid-item">
+            <a href="img/real/ALC/5917463232_51d1cb1f21_z_input_Result.png" target="_blank"><img src="img/real/ALC/5917463232_51d1cb1f21_z_input_Result.png" alt="ALC_4"></a><br>
+            <p>ALC</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/FSID/5917463232_51d1cb1f21_z_input.png" target="_blank"><img src="img/real/FSID/5917463232_51d1cb1f21_z_input.png" alt="FSID_4"></a><br>
+            <p>FSID</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/MSBDN/5917463232_51d1cb1f21_z_input_MSBDN.png" target="_blank"><img src="img/real/MSBDN/5917463232_51d1cb1f21_z_input_MSBDN.png" alt="MSBDN_4"></a><br>
+            <p>MSBDN</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DDCP/5917463232_51d1cb1f21_z_input.png" target="_blank"><img src="img/real/DDCP/5917463232_51d1cb1f21_z_input.png" alt="DDCP_4"></a><br>
+            <p>D-DCP</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/PSD/5917463232_51d1cb1f21_z_input_Result.png" target="_blank"><img src="img/real/PSD/5917463232_51d1cb1f21_z_input_Result.png" alt="PSD_4"></a><br>
+            <p>PSD</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/LDNet/5917463232_51d1cb1f21_z_input_Result_LDN.png" target="_blank"><img src="img/real/LDNet/5917463232_51d1cb1f21_z_input_Result_LDN.png" alt="LDNet_4"></a><br>
+            <p>LDNet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/SGID/5917463232_51d1cb1f21_z_input_Result_SGID.png" target="_blank"><img src="img/real/SGID/5917463232_51d1cb1f21_z_input_Result_SGID.png" alt="SGID_4"></a><br>
+            <p>SGID</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/D4/5917463232_51d1cb1f21_z_input.png" target="_blank"><img src="img/real/D4/5917463232_51d1cb1f21_z_input.png" alt="D4_4"></a><br>
+            <p>D4</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DeHamer/5917463232_51d1cb1f21_z_input.png" target="_blank"><img src="img/real/DeHamer/5917463232_51d1cb1f21_z_input.png" alt="DeHamer_4"></a><br>
+            <p>DeHamer</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/MBTF/5917463232_51d1cb1f21_z_input.png" target="_blank"><img src="img/real/MBTF/5917463232_51d1cb1f21_z_input.png" alt="MBTF_4"></a><br>
+            <p>MB-TF</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/TOENET/5917463232_51d1cb1f21_z_input_TOENet.png" target="_blank"><img src="img/real/TOENET/5917463232_51d1cb1f21_z_input_TOENet.png" alt="TOENET_4"></a><br>
+            <p>TOENet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/DEANET/5917463232_51d1cb1f21_z_input.png" target="_blank"><img src="img/real/DEANET/5917463232_51d1cb1f21_z_input.png" alt="DEANET_4"></a><br>
+            <p>DEANet</p>
+          </div>
+          <div class="comparegrid-item">
+            <a href="img/real/Ours/5917463232_51d1cb1f21_z_input_Result.png" target="_blank"><img src="img/real/Ours/5917463232_51d1cb1f21_z_input_Result.png" alt="Ours_4"></a><br>
+            <p>Ours</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+      
+    
+    <p>
+      
+    </p>
+    <div class="realnavbutton">
+      <button class="navbuttonrealleft" onclick="plusDivsreal(-1)">&#10094;</button>
+      <button class="navbuttonrealright" onclick="plusDivsreal(+1)">&#10095;</button>
+    </div>
+    
+    
+    <div class="myrealimagecircularbuttons">
+      
+      <button class="circlebutton cb1" onclick="currentDivreal(1)"></button>
+      <button class="circlebutton cb2" onclick="currentDivreal(2)"></button>
+      <button class="circlebutton cb3" onclick="currentDivreal(3)"></button>
+      <button class="circlebutton cb4" onclick="currentDivreal(4)"></button>
+    </div>
+    <script type="text/javascript">
+     showDivsreal(1) ;
+    </script>
+    </div>
+    
+<!--------------------------------------------------------------------------------------------------------------------------------->
+  
+    <div id="syntheticresultstotal">
+  
+
+      <h3>
+        Synthetically Generated Hazy Images
+      </h3>
+      <p>
+        Hover on Results for Better View.
+      </p>
+    
+      <div class="SyntheticCarousel">
+      
+            <div class="mySlides_Synthetic_outer">
+      
+        <div class="Input_GTSlider">
+        
+            <div class="compareinputgt">
+              <a href="img/synthetic/input/0054.png" target="_blank"><img src="img/synthetic/input/0054.png" alt="Input_synth_1"></a><br>
+              <p>Input</p>
+            </div>
+            
+            <div class="compareinputgt">
+              <a href="img/synthetic/gt/0054.png" target="_blank"><img src="img/synthetic/gt/0054.png" alt="GT_synth_1"></a><br>
+              <p>GT</p>
+            </div>
+            
+        </div>
+        
+        <div class="comparegridsynthetic">
+        
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/ALC/0054_Result.png" target="_blank"><img src="img/synthetic/ALC/0054_Result.png" alt="ALC_synth_1"></a><br>
+            <p>ALC</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/FSID/0054_Result.png" target="_blank"><img src="img/synthetic/FSID/0054_Result.png" alt="FSID_synth_1"></a><br>
+            <p>FSID</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/MSBDN/0054_Result.png" target="_blank"><img src="img/synthetic/MSBDN/0054_Result.png" alt="MSBDN_synth_1"></a><br>
+            <p>MSBDN</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DDCP/0054_Result.png" target="_blank"><img src="img/synthetic/DDCP/0054_Result.png" alt="DDCP_synth_1"></a><br>
+            <p>D-DCP</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/PSD/0054_Result.png" target="_blank"><img src="img/synthetic/PSD/0054_Result.png" alt="PSD_synth_1"></a><br>
+            <p>PSD</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/LDNet/0054_Result.png" target="_blank"><img src="img/synthetic/LDNet/0054_Result.png" alt="LDNet_synth_1"></a><br>
+            <p>LDNet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/SGID/0054_Result.png" target="_blank"><img src="img/synthetic/SGID/0054_Result.png" alt="SGID_synth_1"></a><br>
+            <p>SGID</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/D4/0054_Result.png" target="_blank"><img src="img/synthetic/D4/0054_Result.png" alt="D4_synth_1"></a><br>
+            <p>D4</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DeHamer/0054_Result.png" target="_blank"><img src="img/synthetic/DeHamer/0054_Result.png" alt="DeHamer_synth_1"></a><br>
+            <p>DeHamer</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/MBTF/0054_Result.png" target="_blank"><img src="img/synthetic/MBTF/0054_Result.png" alt="MBTF_synth_1"></a><br>
+            <p>MB-TF</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/TOENET/0054_Result.png" target="_blank"><img src="img/synthetic/TOENET/0054_Result.png" alt="TOENET_synth_1"></a><br>
+            <p>TOENet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DEANET/0054_Result.png" target="_blank"><img src="img/synthetic/DEANET/0054_Result.png" alt="DEANET_synth_1"></a><br>
+            <p>DEANet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/Ours/0054_Result.png" target="_blank"><img src="img/synthetic/Ours/0054_Result.png" alt="Ours_synth_1"></a><br>
+            <p>Ours</p>
+          </div>
+        </div>
+      </div>
+      
+            <div class="mySlides_Synthetic_outer">
+      
+        <div class="Input_GTSlider">
+        
+            <div class="compareinputgt">
+              <a href="img/synthetic/input/0110_2_1.png" target="_blank"><img src="img/synthetic/input/0110_2_1.png" alt="Input_synth_2"></a><br>
+              <p>Input</p>
+            </div>
+            
+            <div class="compareinputgt">
+              <a href="img/synthetic/gt/0110.png" target="_blank"><img src="img/synthetic/gt/0110.png" alt="GT_synth_2"></a><br>
+              <p>GT</p>
+            </div>
+            
+        </div>
+        
+        <div class="comparegridsynthetic">
+        
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/ALC/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/ALC/0110_2_1_Result.png" alt="ALC_synth_2"></a><br>
+            <p>ALC</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/FSID/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/FSID/0110_2_1_Result.png" alt="FSID_synth_2"></a><br>
+            <p>FSID</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/MSBDN/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/MSBDN/0110_2_1_Result.png" alt="MSBDN_synth_2"></a><br>
+            <p>MSBDN</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DDCP/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/DDCP/0110_2_1_Result.png" alt="DDCP_synth_2"></a><br>
+            <p>D-DCP</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/PSD/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/PSD/0110_2_1_Result.png" alt="PSD_synth_2"></a><br>
+            <p>PSD</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/LDNet/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/LDNet/0110_2_1_Result.png" alt="LDNet_synth_2"></a><br>
+            <p>LDNet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/SGID/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/SGID/0110_2_1_Result.png" alt="SGID_synth_2"></a><br>
+            <p>SGID</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/D4/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/D4/0110_2_1_Result.png" alt="D4_synth_2"></a><br>
+            <p>D4</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DeHamer/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/DeHamer/0110_2_1_Result.png" alt="DeHamer_synth_2"></a><br>
+            <p>DeHamer</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/MBTF/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/MBTF/0110_2_1_Result.png" alt="MBTF_synth_2"></a><br>
+            <p>MB-TF</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/TOENET/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/TOENET/0110_2_1_Result.png" alt="TOENET_synth_2"></a><br>
+            <p>TOENet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DEANET/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/DEANET/0110_2_1_Result.png" alt="DEANET_synth_2"></a><br>
+            <p>DEANet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/Ours/0110_2_1_Result.png" target="_blank"><img src="img/synthetic/Ours/0110_2_1_Result.png" alt="Ours_synth_2"></a><br>
+            <p>Ours</p>
+          </div>
+        </div>
+      </div>
+
+            <div class="mySlides_Synthetic_outer">
+      
+        <div class="Input_GTSlider">
+        
+            <div class="compareinputgt">
+              <a href="img/synthetic/input/0123_2.png" target="_blank"><img src="img/synthetic/input/0123_2.png" alt="Input_synth_3"></a><br>
+              <p>Input</p>
+            </div>
+            
+            <div class="compareinputgt">
+              <a href="img/synthetic/gt/0123.png" target="_blank"><img src="img/synthetic/gt/0123.png" alt="GT_synth_3"></a><br>
+              <p>GT</p>
+            </div>
+            
+        </div>
+        
+        <div class="comparegridsynthetic">
+        
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/ALC/0123_2_Result.png" target="_blank"><img src="img/synthetic/ALC/0123_2_Result.png" alt="ALC_synth_3"></a><br>
+            <p>ALC</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/FSID/0123_2_Result.png" target="_blank"><img src="img/synthetic/FSID/0123_2_Result.png" alt="FSID_synth_3"></a><br>
+            <p>FSID</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/MSBDN/0123_2_Result.png" target="_blank"><img src="img/synthetic/MSBDN/0123_2_Result.png" alt="MSBDN_synth_3"></a><br>
+            <p>MSBDN</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DDCP/0123_2_Result.png" target="_blank"><img src="img/synthetic/DDCP/0123_2_Result.png" alt="DDCP_synth_3"></a><br>
+            <p>D-DCP</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/PSD/0123_2_Result.png" target="_blank"><img src="img/synthetic/PSD/0123_2_Result.png" alt="PSD_synth_3"></a><br>
+            <p>PSD</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/LDNet/0123_2_Result.png" target="_blank"><img src="img/synthetic/LDNet/0123_2_Result.png" alt="LDNet_synth_3"></a><br>
+            <p>LDNet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/SGID/0123_2_Result.png" target="_blank"><img src="img/synthetic/SGID/0123_2_Result.png" alt="SGID_synth_3"></a><br>
+            <p>SGID</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/D4/0123_2_Result.png" target="_blank"><img src="img/synthetic/D4/0123_2_Result.png" alt="D4_synth_3"></a><br>
+            <p>D4</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DeHamer/0123_2_Result.png" target="_blank"><img src="img/synthetic/DeHamer/0123_2_Result.png" alt="DeHamer_synth_3"></a><br>
+            <p>DeHamer</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/MBTF/0123_2_Result.png" target="_blank"><img src="img/synthetic/MBTF/0123_2_Result.png" alt="MBTF_synth_3"></a><br>
+            <p>MB-TF</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/TOENET/0123_2_Result.png" target="_blank"><img src="img/synthetic/TOENET/0123_2_Result.png" alt="TOENET_synth_3"></a><br>
+            <p>TOENet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DEANET/0123_2_Result.png" target="_blank"><img src="img/synthetic/DEANET/0123_2_Result.png" alt="DEANET_synth_3"></a><br>
+            <p>DEANet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/Ours/0123_2_Result.png" target="_blank"><img src="img/synthetic/Ours/0123_2_Result.png" alt="Ours_synth_3"></a><br>
+            <p>Ours</p>
+          </div>
+        </div>
+      </div>
+
+            <div class="mySlides_Synthetic_outer">
+      
+        <div class="Input_GTSlider">
+        
+            <div class="compareinputgt">
+              <a href="img/synthetic/input/0184_2_3.png" target="_blank"><img src="img/synthetic/input/0184_2_3.png" alt="Input_synth_4"></a><br>
+              <p>Input</p>
+            </div>
+            
+            <div class="compareinputgt">
+              <a href="img/synthetic/gt/0184.png" target="_blank"><img src="img/synthetic/gt/0184.png" alt="GT_synth_4"></a><br>
+              <p>GT</p>
+            </div>
+            
+        </div>
+        
+        <div class="comparegridsynthetic">
+        
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/ALC/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/ALC/0184_2_3_Result.png" alt="ALC_synth_4"></a><br>
+            <p>ALC</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/FSID/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/FSID/0184_2_3_Result.png" alt="FSID_synth_4"></a><br>
+            <p>FSID</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/MSBDN/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/MSBDN/0184_2_3_Result.png" alt="MSBDN_synth_4"></a><br>
+            <p>MSBDN</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DDCP/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/DDCP/0184_2_3_Result.png" alt="DDCP_synth_4"></a><br>
+            <p>D-DCP</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/PSD/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/PSD/0184_2_3_Result.png" alt="PSD_synth_4"></a><br>
+            <p>PSD</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/LDNet/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/LDNet/0184_2_3_Result.png" alt="LDNet_synth_4"></a><br>
+            <p>LDNet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/SGID/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/SGID/0184_2_3_Result.png" alt="SGID_synth_4"></a><br>
+            <p>SGID</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/D4/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/D4/0184_2_3_Result.png" alt="D4_synth_4"></a><br>
+            <p>D4</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DeHamer/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/DeHamer/0184_2_3_Result.png" alt="DeHamer_synth_4"></a><br>
+            <p>DeHamer</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/MBTF/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/MBTF/0184_2_3_Result.png" alt="MBTF_synth_4"></a><br>
+            <p>MB-TF</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/TOENET/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/TOENET/0184_2_3_Result.png" alt="TOENET_synth_4"></a><br>
+            <p>TOENet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/DEANET/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/DEANET/0184_2_3_Result.png" alt="DEANET_synth_4"></a><br>
+            <p>DEANet</p>
+          </div>
+          <div class="comparegrid-itemSynthetic">
+            <a href="img/synthetic/Ours/0184_2_3_Result.png" target="_blank"><img src="img/synthetic/Ours/0184_2_3_Result.png" alt="Ours_synth_4"></a><br>
+            <p>Ours</p>
+          </div>
+        </div>
+      </div>
+
+      
+      </div>
+      
+        <div class="syntheticnavbuttonIPGT">
+          <button class="syntheticnavbuttonIPGTcomm navbuttonsynthIP" onclick="showsynthIPGT(0)">Input</button>
+          <button class="syntheticnavbuttonIPGTcomm navbuttonsynthGT" onclick="showsynthIPGT(1)">     GT     </button>
+        </div>
+        
+        <div class="syntheticnavbuttonouter">
+          <button class="navbuttonsynthleft" onclick="plusDivssynth(-1)">&#10094;</button>
+          <button class="navbuttonsynthright" onclick="plusDivssynth(+1)">&#10095;</button>
+        </div>
+    
+    
+        <div class="mysynthimagecircularbuttons">
+          
+          <button class="circlebuttonsynth cb1" onclick="currentDivsynth(1)"></button>
+          <button class="circlebuttonsynth cb2" onclick="currentDivsynth(2)"></button>
+          <button class="circlebuttonsynth cb3" onclick="currentDivsynth(3)"></button>
+          <button class="circlebuttonsynth cb4" onclick="currentDivsynth(4)"></button>
+        </div>
+        
+        <script type="text/javascript">
+         showDivsynth(1) ;
+        </script>   
+      
+
+    </div>
+    
+    </div>
+<!--------------------------------------------------------------------------------------------------------------------------------->    
+    
+    <!-- <div class="AblationStudy" id="AblationStudy">
+      <img id="Ablation_icon" src="icon/ablationicon.png" alt="Ablation_Icon">
+      <h2>
+        Ablation Study
+      </h2>
+      
+      <div class="AblationResults">
+      
+        <div class="mySlidesabl">
+          <div class="compareinputsabl">
+            <a href="img/ablation/0003.png" target="_blank"><img src="img/ablation/0003.png" alt="Input_1"></a><br>
+            <p>Input</p>
+          </div>
+          <div class="comparegridabl">
+          
+            <div class="comparegrid-abl">
+              <a href="img/ablation/0003_nocorrection.png" target="_blank"><img src="img/ablation/0003_nocorrection.png" alt="nc_1"></a><br>
+              <p>No Correction</p>
+            </div>
+            <div class="comparegrid-abl">
+              <a href="img/ablation/0003_onlygw.png" target="_blank"><img src="img/ablation/0003_onlygw.png" alt="cb_1"></a><br>
+              <p>Color Balancing</p>
+            </div>
+            <div class="comparegrid-abl">
+              <a href="img/ablation/0003_onlysat.png" target="_blank"><img src="img/ablation/0003_onlysat.png" alt="cc_1"></a><br>
+              <p>Saturation Correction</p>
+            </div>
+            <div class="comparegrid-abl">
+              <a href="img/ablation/0003_actual.png" target="_blank"><img src="img/ablation/0003_actual.png" alt="ours_1"></a><br>
+              <p>Ours</p>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="mySlidesabl">
+          <div class="compareinputsabl">
+            <a href="img/ablation/s7.jpg" target="_blank"><img src="img/ablation/s7.jpg" alt="Input_2"></a><br>
+            <p>Input</p>
+          </div>
+          <div class="comparegridabl">
+          
+            <div class="comparegrid-abl">
+              <a href="img/ablation/s7_nocorrection.png" target="_blank"><img src="img/ablation/s7_nocorrection.png" alt="nc_2"></a><br>
+              <p>No Correction</p>
+            </div>
+            <div class="comparegrid-abl">
+              <a href="img/ablation/s7_onlygw.png" target="_blank"><img src="img/ablation/s7_onlygw.png" alt="cb_2"></a><br>
+              <p>Color Balancing</p>
+            </div>
+            <div class="comparegrid-abl">
+              <a href="img/ablation/s7_onlysat.png" target="_blank"><img src="img/ablation/s7_onlysat.png" alt="cc_2"></a><br>
+              <p>Saturation Correction</p>
+            </div>
+            <div class="comparegrid-abl">
+              <a href="img/ablation/s7_actual.png" target="_blank"><img src="img/ablation/s7_actual.png" alt="ours_2"></a><br>
+              <p>Ours</p>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="mySlidesabl">
+          <div class="compareinputsabl">
+            <a href="img/ablation/s18.png" target="_blank"><img src="img/ablation/s18.png" alt="Input_3"></a><br>
+            <p>Input</p>
+          </div>
+          <div class="comparegridabl">
+          
+            <div class="comparegrid-abl">
+              <a href="img/ablation/s18_nocorrection.png" target="_blank"><img src="img/ablation/s18_nocorrection.png" alt="nc_3"></a><br>
+              <p>No Correction</p>
+            </div>
+            <div class="comparegrid-abl">
+              <a href="img/ablation/s18_gw.png" target="_blank"><img src="img/ablation/s18_gw.png" alt="cb_3"></a><br>
+              <p>Color Balancing</p>
+            </div>
+            <div class="comparegrid-abl">
+              <a href="img/ablation/s18_sat.png" target="_blank"><img src="img/ablation/s18_sat.png" alt="cc_3"></a><br>
+              <p>Saturation Correction</p>
+            </div>
+            <div class="comparegrid-abl">
+              <a href="img/ablation/s18_actual.png" target="_blank"><img src="img/ablation/s18_actual.png" alt="ours_3"></a><br>
+              <p>Ours</p>
+            </div>
+            
+          </div>
+        </div> 
+      
+      </div>
+      
+      <div class="ablnavbutton">
+        <button class="navbuttonablleft" onclick="plusDivsabl(-1)">&#10094;</button>
+        <button class="navbuttonablright" onclick="plusDivsabl(+1)">&#10095;</button>
+      </div>
+      
+      
+      <div class="myablimagecircularbuttons">
+
+        <button class="circlebuttonabl cb1" onclick="currentDivabl(1)"></button>
+        <button class="circlebuttonabl cb2" onclick="currentDivabl(2)"></button>
+        <button class="circlebuttonabl cb3" onclick="currentDivabl(3)"></button>
+      </div>
+      <script type="text/javascript">
+       showDivsabl(1) ;
+      </script>
+    
+    </div> -->
+    
+<!--------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="Downloads" id="Downloads">
+      <img id="Downloads_icon" src="icon/Downloadicon.png" alt="Downloadsicon">
+      <h2>
+        Downloads
+      </h2>
+      
+      <div class="Download_Grid">
+      
+        <div class="mygriddownload">
+          <div class="downloadPaper">
+            <a href="#" target="_blank"><img src="img/arxiv.png" alt="Download Paper"></a><br>
+            <p>Paper</p>
+          </div>
+          
+        </div>
+        
+        <div class="mygriddownload">
+          <div class="downloadCode">
+            <a href="#" target="_blank"><img src="img/github.png" alt="Download Code"></a><br>
+            <p>Code</p>
+          </div>
+          
+        </div>
+        
+      
+      </div>
+      
+    </div>
+    
+<!--------------------------------------------------------------------------------------------------------------------------------->    
+    
+    <div class="References" id="References">
+    
+      <img id="References_icon" src="icon/Referencesicon.png" alt="Referencesicon">
+      <h2>
+        References
+      </h2>
+      
+      <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque 
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium 
+      quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, 
+      rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. 
+      Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, 
+      enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque 
+      rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. 
+      Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, 
+      blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero 
+      venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet 
+      nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+      </p>
+      
+    </div>
+    
+<!--------------------------------------------------------------------------------------------------------------------------------->   
+
+  <div class="Citation"  id="Citation">
+  
+      <img id="Citation_icon" src="icon/Citationicon.png" alt="Citationicon">
+      
+      <h2>
+        Citation (Bibtex)
+      </h2>
+      
+      <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque 
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium 
+      quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, 
+      rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. 
+      Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, 
+      enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque 
+      rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. 
+      Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, 
+      blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero 
+      venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet 
+      nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+      </p>
+      
+    </div>
+    
+<!--------------------------------------------------------------------------------------------------------------------------------->   
+
+  <footer>
+    <p>Copyright &#169; Mayukh Roy.</p>
+  </footer>
+
+  </body>
+</html>
