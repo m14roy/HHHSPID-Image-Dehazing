@@ -871,7 +871,7 @@ footer{
 	}
   
 
-  @media screen and (max-width: : 768px)
+  @media screen and (max-width: : 480px)
 {
 	body{
 		width: 95%;
@@ -1265,4 +1265,5 @@ footer{
 }
 
 /*--------------------Mobile Responsive Media Queries--------------------*/
+
 
