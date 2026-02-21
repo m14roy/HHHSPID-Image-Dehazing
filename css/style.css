@@ -1036,11 +1036,12 @@ footer{
 	}
 
 	.realnavbutton {
-		margin-top: 15px;
+		margin-top: 30px;
+		position: relative;
 	}
 
 	.myrealimagecircularbuttons{
-		margin-top: 15px;
+		margin-top: 25px;
 	}
 
 	.SyntheticCarousel {
@@ -1082,8 +1083,8 @@ footer{
 	.syntheticnavbuttonIPGT {
 		float: none;
 		width: 100%;
-		margin-bottom: 10px;
-		margin-top: 0;
+		margin-bottom: 20px;
+		margin-top: 20px;
 		display: flex;
 		justify-content: center;
 		gap: 8px;
@@ -1099,11 +1100,12 @@ footer{
 	}
 
 	.syntheticnavbuttonouter {
-		margin-top: 15px;
+		margin-top: 30px;
+		position: relative;
 	}
 
 	.mysynthimagecircularbuttons{
-		margin-top: 15px;
+		margin-top: 25px;
 	}
 
 	.AblationResults {
@@ -1143,11 +1145,12 @@ footer{
 	}
 
 	.ablnavbutton {
-		margin-top: 10px;
+		margin-top: 25px;
+		position: relative;
 	}
 
 	.myablimagecircularbuttons{
-		margin-top: 15px;
+		margin-top: 25px;
 	}
 
 	.circlebutton,
