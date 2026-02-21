@@ -115,6 +115,7 @@ header p:last-of-type{
   display: grid;
   grid-template-columns: auto auto auto;
   grid-column-gap: 3%;
+  align-items: center;
 }
 .grid-item {
   /*border: 1px solid;*/
@@ -124,7 +125,9 @@ header p:last-of-type{
 
 .grid-item img {
   width: 100%;
-  height: 600px;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
 }
 
 .slider_grid{
@@ -803,3 +806,378 @@ footer{
 }
 
 /*-----------------------------*Footer---------------------------------*/
+
+/*---------------------Mobile Responsive Media Queries ----------------*/
+
+@media screen and (max-width: : 768px)
+{
+	body{
+		width: 90%;
+	}
+
+	header h1{
+		font-size: 30px;
+	}
+
+	header p{
+		font-size: 18px;
+	}
+
+	h2{
+		font-size: 24px;
+	}
+
+	h3{
+		font-size: 20px;
+	}
+
+	.slider_grid{
+		grid-template-columns: auto auto;
+		grid-row-gap: 20px;
+	}
+
+	.grid-item img {
+		height: auto;
+		max-height: 400px;
+	}
+
+	.Framework #Framework {
+		left : 10%;
+		width: 80%;
+	}
+
+	.comparegridabl {
+		grid-template-columns: auto auto;
+	}
+
+	.comparegrid-item img{
+		max-height: 150px;
+	}
+
+	.comparegridsynthetic{
+		grid-template-columns: auto auto auto;
+	}
+
+	.comparegrid-itemSynthetic img{
+		max-height: 150px;
+	}
+
+	.syntheticnavbuttonIPGT .navbuttonsynthIP{
+		margin-right: 10px;
+	}
+
+	.syntheticnavbuttonIPGT .navbuttonsynthIP{
+		margin-left: 10px;
+	}
+  
+
+  @media screen and (max-width: : 480px)
+{
+	body{
+		width: 95%;
+	}
+
+	header h1{
+		font-size: 24px;
+	}
+
+	header p{
+		font-size: 16px;
+	}
+
+	h2{
+		font-size: 22px;
+	}
+
+	h3{
+		font-size: 18px;
+	}
+
+	.navbar{
+		overflow: visible;
+	}
+
+	.navbar a {
+		float: none;
+		display: block;
+		text-align: left;
+		padding: 12px 16px;
+	}
+
+	.dropdown {
+		float: none;
+	}
+
+	.dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+	}
+
+	.dropdown-content {
+	    position: relative;
+	    box-shadow: none;
+	}
+
+	/* Top slider section - stack to 1 column */
+	.slider_grid {
+	    grid-template-columns: auto;
+	    grid-row-gap: 15px;
+	}
+
+	.grid-item img {
+	    height: auto;
+	    max-height: 300px;
+	}
+
+	/* Section icons - use fixed width */
+	.Abstract #Abstract_icon,
+	.Framework #Framework_icon,
+	.Highlights #Highlights_icon,
+	#Resultsfull #Results_icon,
+	.AblationStudy #Ablation_icon,
+	.Downloads #Downloads_icon,
+	.References #References_icon,
+	.Citation #Citation_icon {
+	    width: 20px;
+	    min-width: 20px;
+	}
+
+	.Abstract h2,
+	.Framework h2,
+	.Highlights h2,
+	#Resultsfull h2,
+	.AblationStudy h2,
+	.Downloads h2,
+	.References h2,
+	.Citation h2 {
+	    width: calc(97% - 20px);
+	}
+
+	/* Framework image - full width on mobile */
+	.Framework #Framework {
+	    position: static;
+	    left: auto;
+	    width: 100%;
+	    margin: 20px auto;
+	    display: block;
+	}
+
+	.realresults {
+    height: auto;
+    min-height: 480px;
+	}
+
+	.compareinputs {
+	    float: none;
+	    width: 100%;
+	    max-width: 100%;
+	    margin-bottom: 20px;
+	}
+
+	.compareinputs img {
+	    max-height: 350px;
+	}
+
+	.comparegridreal {
+	    float: none;
+	    width: 100%;
+	    max-width: 100%;
+	    grid-template-columns: auto auto;
+	    max-height: none;
+	}
+
+	.comparegrid-item img {
+	    max-height: 120px;
+	}
+
+	.comparegrid-item p {
+	    font-size: 45%;
+	}
+
+	/* Disable hover zoom on mobile (touch devices) */
+	.comparegrid-item img:hover {
+	    transform: none;
+	}
+
+	/* Real results navigation */
+	.realnavbutton {
+	    margin-top: 20px;
+	}
+
+	/* Synthetic results section - stack vertically */
+	.SyntheticCarousel {
+	    height: auto;
+	    min-height: 480px;
+	}
+
+	.Input_GTSlider {
+	    float: none;
+	    width: 100%;
+	    max-width: 100%;
+	    margin-bottom: 15px;
+	}
+
+	.Input_GTSlider .compareinputgt img {
+    max-height: 300px;
+	}
+
+	.comparegridsynthetic {
+	    float: none;
+	    width: 100%;
+	    max-width: 100%;
+	    grid-template-columns: auto auto;
+	    max-height: none;
+	}
+
+	.comparegrid-itemSynthetic img {
+	    max-height: 110px;
+	}
+
+	.comparegrid-itemSynthetic p {
+	    font-size: 45%;
+	}
+
+	/* Disable hover zoom on mobile */
+	.comparegrid-itemSynthetic img:hover {
+	    transform: none;
+	}
+
+	/* Synthetic navigation buttons */
+	.syntheticnavbuttonIPGT {
+	    float: none;
+	    width: 100%;
+	    margin-bottom: 15px;
+	}
+
+	.syntheticnavbuttonIPGT .navbuttonsynthIP,
+	.syntheticnavbuttonIPGT .navbuttonsynthGT {
+	    padding: 8px 15px;
+	    font-size: 90%;
+	}
+
+	.syntheticnavbuttonIPGT .navbuttonsynthIP {
+	    margin-right: 5px;
+	}
+
+	.syntheticnavbuttonIPGT .navbuttonsynthGT {
+	    margin-left: 5px;
+	    padding: 8px 15px;
+	}
+
+	.syntheticnavbuttonouter {
+	    margin-top: 20px;
+	}
+
+	/* Ablation study section - stack vertically */
+  .AblationResults {
+      height: auto;
+      min-height: 350px;
+  }
+
+  .compareinputsabl {
+      float: none;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .compareinputsabl img {
+      max-height: 300px;
+  }
+
+  .comparegridabl {
+      float: none;
+      width: 100%;
+      max-width: 100%;
+      grid-template-columns: auto auto;
+      max-height: none;
+  }
+
+  .comparegrid-abl img {
+      max-height: 130px;
+  }
+
+  .comparegrid-abl p {
+      font-size: 45%;
+  }
+
+  .comparegrid-abl img:hover {
+      transform: none;
+  }
+
+  .ablnavbutton {
+      margin-top: 20px;
+  }
+
+  /* Circular navigation buttons */
+  .circlebutton,
+  .circlebuttonsynth,
+  .circlebuttonabl {
+      padding: 4px;
+      margin: 3px 1px;
+  }
+
+  /* Downloads section - stack on very small screens */
+  .Download_Grid {
+  	grid-template-columns: auto;
+  	grid-row-gap: 20px;
+  }
+
+  .mygriddownload img{
+  	max-height: 120px;
+  }
+
+}
+
+/* Extra small phones (360px and below) */
+@media screen and (max-width: 360px) {
+
+    body {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    /* Further reduce image heights */
+    .grid-item img {
+        height: auto;
+        max-height: 250px;
+    }
+
+    .compareinputs img {
+        max-height: 280px;
+    }
+
+    .comparegrid-item img {
+        max-height: 100px;
+    }
+
+    .comparegrid-itemSynthetic img {
+        max-height: 90px;
+    }
+
+    /* Smaller navigation buttons on extra small screens */
+    .syntheticnavbuttonIPGT .navbuttonsynthIP,
+    .syntheticnavbuttonIPGT .navbuttonsynthGT {
+        padding: 6px 10px;
+        font-size: 85%;
+    }
+}
+
+/*--------------------Mobile Responsive Media Queries--------------------*/
