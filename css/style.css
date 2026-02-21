@@ -241,6 +241,7 @@ header p:last-of-type{
 
 .realresults{
 	height:480px;
+	overflow: auto;
 }
 
 .compareinputs {
@@ -313,6 +314,7 @@ header p:last-of-type{
 	position: relative;
 	margin-top:15px;	
 	text-align: center;
+	overflow: hidden;
 }
 .realnavbutton .navbuttonrealleft, .realnavbutton .navbuttonrealright{
 	background: rgba(0,0,0,0);
@@ -376,6 +378,7 @@ header p:last-of-type{
 
 .SyntheticCarousel{
 	height:480px;
+	overflow: auto;
 }
 
 .Input_GTSlider {
@@ -454,6 +457,7 @@ header p:last-of-type{
 	position: relative;
 	margin-top:15px;		
 	text-align: center;
+	overflow: hidden;
 }
 
 .syntheticnavbuttonIPGT .navbuttonsynthIP,.syntheticnavbuttonIPGT .navbuttonsynthGT{
@@ -562,6 +566,7 @@ header p:last-of-type{
 
 .AblationResults{
 	height:350px;
+	overflow: auto;
 }
 
 .compareinputsabl {
@@ -634,6 +639,7 @@ header p:last-of-type{
 	position: relative;
 	margin-top:10px;	
 	text-align: center;
+	overflow: hidden;
 }
 .ablnavbutton .navbuttonablleft, .ablnavbutton .navbuttonablright{
 	background: rgba(0,0,0,0);
@@ -1036,11 +1042,11 @@ footer{
 	}
 
 	.realnavbutton {
-		margin-top: 15px;
+		margin-top: 50px;
 	}
 
-	.myrealimagecircularbuttons{
-		margin-top: 15px;
+	.myrealimagecircularbuttons {
+		margin-top: 40px;
 	}
 
 	.SyntheticCarousel {
@@ -1082,8 +1088,8 @@ footer{
 	.syntheticnavbuttonIPGT {
 		float: none;
 		width: 100%;
-		margin-bottom: 10px;
-		margin-top: 0;
+		margin-bottom: 30px;
+		margin-top: 30px;
 		display: flex;
 		justify-content: center;
 		gap: 8px;
@@ -1099,11 +1105,11 @@ footer{
 	}
 
 	.syntheticnavbuttonouter {
-		margin-top: 15px;
+		margin-top: 50px;
 	}
 
-	.mysynthimagecircularbuttons{
-		margin-top: 15px;
+	.mysynthimagecircularbuttons {
+		margin-top: 40px;
 	}
 
 	.AblationResults {
@@ -1143,11 +1149,11 @@ footer{
 	}
 
 	.ablnavbutton {
-		margin-top: 10px;
+		margin-top: 50px;
 	}
 
-	.myablimagecircularbuttons{
-		margin-top: 15px;
+	.myablimagecircularbuttons {
+		margin-top: 40px;
 	}
 
 	.circlebutton,
@@ -1162,7 +1168,7 @@ footer{
 		grid-row-gap: 20px;
 	}
 
-	.mygriddownload{
+	.mygriddownload {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -1170,22 +1176,22 @@ footer{
 	}
 
 	.downloadPaper,
-	.downloadCode{
+	.downloadCode {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
-	.mygriddownload img{
+	.mygriddownload img {
 		max-height: 80px;
 		width: auto;
 	}
 
-	.mygriddownload p{
+	.mygriddownload p {
 		font-size: 50%;
 	}
 
-	footer p{
+	footer p {
 		font-size: 12px;
 	}
 }
@@ -1212,7 +1218,7 @@ footer{
 		font-size: 14px;
 	}
 
-	p{
+	p {
 		font-size: 12px;
 	}
 
@@ -1239,11 +1245,11 @@ footer{
 		font-size: 11px;
 	}
 
-	.mygriddownload img{
+	.mygriddownload img {
 		max-height: 60px;
 	}
 
-	footer p{
+	footer p {
 		font-size: 11px;
 	}
 }
