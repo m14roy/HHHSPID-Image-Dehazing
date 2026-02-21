@@ -875,22 +875,39 @@ footer{
 {
 	body{
 		width: 95%;
+		font-size: 14px;
 	}
 
 	header h1{
-		font-size: 24px;
+		font-size: 18px;
+		line-height: 1.3;
+		margin: 10px 0;
 	}
 
 	header p{
-		font-size: 16px;
+		font-size: 13px;
+		line-height: 1.4;
+		margin: 5px 0;
 	}
 
 	h2{
-		font-size: 22px;
+		font-size: 18px;
+		line-height: 1.3;
 	}
 
 	h3{
-		font-size: 18px;
+		font-size: 16px;
+		line-height: 1.3;
+	}
+
+	p{
+		font-size: 13px;
+		line-height: 1.5;
+	}
+
+	ul, li{
+		font-size: 13px;
+		line-height: 1.5;
 	}
 
 	.navbar{
@@ -901,7 +918,8 @@ footer{
 		float: none;
 		display: block;
 		text-align: left;
-		padding: 12px 16px;
+		padding: 10px 14px;
+		font-size: 14px;
 	}
 
 	.dropdown {
@@ -912,12 +930,23 @@ footer{
     display: block;
     width: 100%;
     text-align: left;
-    padding: 12px 16px;
+		padding: 10px 14px;
+		font-size: 14px;
 	}
 
 	.dropdown-content {
 	    position: relative;
 	    box-shadow: none;
+	}
+
+	.dropdown-content a{
+		font-size: 13px;
+		padding: 10px 14px;
+	}
+
+	#slider_info{
+		font-size: 14px;
+		margin: 10px 0;
 	}
 
 	/* Top slider section - stack to 1 column */
@@ -940,8 +969,9 @@ footer{
 	.Downloads #Downloads_icon,
 	.References #References_icon,
 	.Citation #Citation_icon {
-	    width: 20px;
-	    min-width: 20px;
+	    width: 30px;
+	    min-width: 30px;
+	    padding-top: 5px;
 	}
 
 	.Abstract h2,
@@ -952,7 +982,7 @@ footer{
 	.Downloads h2,
 	.References h2,
 	.Citation h2 {
-	    width: calc(97% - 20px);
+	    width: calc(100% - 35px);
 	}
 
 	/* Framework image - full width on mobile */
@@ -967,6 +997,11 @@ footer{
 	.realresults {
     height: auto;
     min-height: 480px;
+	}
+
+	#realresultstotal p,
+	#syntheticresultstotal p {
+		font-size: 13px;
 	}
 
 	.compareinputs {
@@ -1003,7 +1038,11 @@ footer{
 
 	/* Real results navigation */
 	.realnavbutton {
-	    margin-top: 20px;
+	    margin-top: 10px;
+	}
+
+	.myrealimagecircularbuttons{
+		margin-top: 15px;
 	}
 
 	/* Synthetic results section - stack vertically */
@@ -1048,26 +1087,31 @@ footer{
 	.syntheticnavbuttonIPGT {
 	    float: none;
 	    width: 100%;
-	    margin-bottom: 15px;
+	    margin-bottom: 10px;
+	    margin-top: 0;
 	}
 
 	.syntheticnavbuttonIPGT .navbuttonsynthIP,
 	.syntheticnavbuttonIPGT .navbuttonsynthGT {
-	    padding: 8px 15px;
-	    font-size: 90%;
+	    padding: 6px 12px;
+	    font-size: 13px;
 	}
 
 	.syntheticnavbuttonIPGT .navbuttonsynthIP {
-	    margin-right: 5px;
+	    margin-right: 8px;
 	}
 
 	.syntheticnavbuttonIPGT .navbuttonsynthGT {
-	    margin-left: 5px;
-	    padding: 8px 15px;
+	    margin-left: 8px;
+	    padding: 6px 12px;
 	}
 
 	.syntheticnavbuttonouter {
-	    margin-top: 20px;
+	    margin-top: 10px;
+	}
+
+	.mysynthimagecircularbuttons{
+		margin-top: 15px;
 	}
 
 	/* Ablation study section - stack vertically */
@@ -1108,7 +1152,11 @@ footer{
   }
 
   .ablnavbutton {
-      margin-top: 20px;
+      margin-top: 10px;
+  }
+
+  .myablimagecircularbuttons{
+  	margin-top: 15px;
   }
 
   /* Circular navigation buttons */
@@ -1125,8 +1173,31 @@ footer{
   	grid-row-gap: 20px;
   }
 
+  .mygriddownload{
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  }
+
+  .downloadPaper,
+  .downloadCode{
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  }
+
   .mygriddownload img{
-  	max-height: 120px;
+  	max-height: 80px;
+  	width: auto;
+  }
+
+  .mygriddownload p{
+  	font-size: 50%;
+  }
+
+  footer p{
+  	font-size: 12px;
   }
 
 }
@@ -1135,23 +1206,28 @@ footer{
 @media screen and (max-width: 360px) {
 
     body {
-        width: 95%;
+        width: 98%;
+        font-size: 13px;
     }
 
     header h1 {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     header p {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     h2 {
-        font-size: 20px;
+        font-size: 16pxx;
     }
 
     h3 {
-        font-size: 16px;
+        font-size: 14px;
+    }
+
+    p{
+    	font-size: 12px;
     }
 
     /* Further reduce image heights */
@@ -1175,8 +1251,16 @@ footer{
     /* Smaller navigation buttons on extra small screens */
     .syntheticnavbuttonIPGT .navbuttonsynthIP,
     .syntheticnavbuttonIPGT .navbuttonsynthGT {
-        padding: 6px 10px;
-        font-size: 85%;
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+
+    .mygriddownload img{
+    	max-height: 60px;
+    }
+
+    footer p{
+    	font-size: 11px;
     }
 }
 
