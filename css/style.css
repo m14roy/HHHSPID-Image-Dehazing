@@ -241,6 +241,7 @@ header p:last-of-type{
 
 .realresults{
 	height:480px;
+	display: flow-root;
 }
 
 .compareinputs {
@@ -279,7 +280,6 @@ header p:last-of-type{
   /*background: red;*/
   grid-column-gap: 2%;
   grid-row-gap: 1%;
-  margin-bottom: 20px;
 }
 .comparegrid-item {
   /*border: 1px solid;*/
@@ -314,6 +314,8 @@ header p:last-of-type{
 	position: relative;
 	margin-top:20px;	
 	text-align: center;
+	display: block;
+	width: 100%;
 	clear: both;
 }
 .realnavbutton .navbuttonrealleft, .realnavbutton .navbuttonrealright{
@@ -347,6 +349,8 @@ header p:last-of-type{
 	position: relative;
 	margin-top: 30px;
 	text-align: center;
+	display: block;
+	width: 100%;
 	clear: both;
 }
 
@@ -369,7 +373,7 @@ header p:last-of-type{
 
 #realresultstotal{
 	padding-bottom: 10px;
-	clear: both;
+	display: flow-root;
 	
 }
 /*----------------------*Real Compare Section-------------------------*/
@@ -380,6 +384,7 @@ header p:last-of-type{
 
 .SyntheticCarousel{
 	height:480px;
+	display: flow-root;
 }
 
 .Input_GTSlider {
@@ -418,7 +423,6 @@ header p:last-of-type{
   /*background: red;*/
   grid-column-gap: 2%;
   grid-row-gap: 1%;
-  margin-bottom: 20px;
 }
 .comparegrid-itemSynthetic {
   /*border: 1px solid;*/
@@ -459,6 +463,8 @@ header p:last-of-type{
 	position: relative;
 	margin-top:20px;
 	text-align: center;
+	display: block;
+	width: 100%;
 	clear: both;
 }
 
@@ -525,6 +531,8 @@ header p:last-of-type{
 	position: relative;
 	margin-top: 10px;
 	text-align: center;
+	display: block;
+	width: 100%;
 	clear: both;
 }
 
@@ -550,7 +558,7 @@ header p:last-of-type{
 	border-width: 2px;
 	border-style: none none solid none;
 	border-color: #cecece;
-	clear: both;
+	display: flow-root;
 }
 /*-------------------*Synthetic  Compare Section-----------------------*/
 
@@ -570,6 +578,7 @@ header p:last-of-type{
 
 .AblationResults{
 	height:350px;
+	display: flow-root;
 }
 
 .compareinputsabl {
@@ -608,7 +617,6 @@ header p:last-of-type{
   /*background: red;*/
   grid-column-gap: 2%;
   grid-row-gap: 1%;
-  margin-bottom: 20px;
 }
 .comparegrid-abl {
   /*border: 1px solid;*/
@@ -643,6 +651,8 @@ header p:last-of-type{
 	position: relative;
 	margin-top:20px;	
 	text-align: center;
+	display: block;
+	width: 100%;
 	clear: both;
 }
 .ablnavbutton .navbuttonablleft, .ablnavbutton .navbuttonablright{
@@ -676,6 +686,8 @@ header p:last-of-type{
 	position: relative;
 	margin-top: 10px;
 	text-align: center;
+	display: block;
+	width: 100%;
 	clear: both;
 }
 
@@ -701,7 +713,7 @@ header p:last-of-type{
 	border-width: 2px;
 	border-style: none none solid none;
 	border-color: #cecece;
-	clear: both;
+	display: flow-root;
 }
 
 /*--------------------*Ablation Compare Section------------------------*/
@@ -1009,7 +1021,6 @@ footer{
 	.realresults {
 		height: auto;
 		min-height: 480px;
-		clear: both;
 	}
 
 	#realresultstotal p,
@@ -1061,7 +1072,6 @@ footer{
 	.SyntheticCarousel {
 		height: auto;
 		min-height: 480px;
-		clear: both;
 	}
 
 	.Input_GTSlider {
@@ -1127,7 +1137,6 @@ footer{
 	.AblationResults {
 		height: auto;
 		min-height: 350px;
-		clear: both;
 	}
 
 	.compareinputsabl {
