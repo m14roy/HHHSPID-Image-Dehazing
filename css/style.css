@@ -241,7 +241,6 @@ header p:last-of-type{
 
 .realresults{
 	height:480px;
-	display: flow-root;
 }
 
 .compareinputs {
@@ -312,11 +311,8 @@ header p:last-of-type{
 
 .realnavbutton{
 	position: relative;
-	margin-top:20px;	
+	margin-top:350px;	
 	text-align: center;
-	display: block;
-	width: 100%;
-	clear: both;
 }
 .realnavbutton .navbuttonrealleft, .realnavbutton .navbuttonrealright{
 	background: rgba(0,0,0,0);
@@ -349,9 +345,6 @@ header p:last-of-type{
 	position: relative;
 	margin-top: 30px;
 	text-align: center;
-	display: block;
-	width: 100%;
-	clear: both;
 }
 
 .circlebutton{
@@ -373,7 +366,6 @@ header p:last-of-type{
 
 #realresultstotal{
 	padding-bottom: 10px;
-	display: flow-root;
 	
 }
 /*----------------------*Real Compare Section-------------------------*/
@@ -384,7 +376,6 @@ header p:last-of-type{
 
 .SyntheticCarousel{
 	height:480px;
-	display: flow-root;
 }
 
 .Input_GTSlider {
@@ -461,11 +452,8 @@ header p:last-of-type{
 }
 .syntheticnavbuttonouter{
 	position: relative;
-	margin-top:20px;
+	margin-top:200px;		
 	text-align: center;
-	display: block;
-	width: 100%;
-	clear: both;
 }
 
 .syntheticnavbuttonIPGT .navbuttonsynthIP,.syntheticnavbuttonIPGT .navbuttonsynthGT{
@@ -531,9 +519,6 @@ header p:last-of-type{
 	position: relative;
 	margin-top: 10px;
 	text-align: center;
-	display: block;
-	width: 100%;
-	clear: both;
 }
 
 .circlebuttonsynth{
@@ -558,7 +543,6 @@ header p:last-of-type{
 	border-width: 2px;
 	border-style: none none solid none;
 	border-color: #cecece;
-	display: flow-root;
 }
 /*-------------------*Synthetic  Compare Section-----------------------*/
 
@@ -578,7 +562,6 @@ header p:last-of-type{
 
 .AblationResults{
 	height:350px;
-	display: flow-root;
 }
 
 .compareinputsabl {
@@ -649,11 +632,8 @@ header p:last-of-type{
 
 .ablnavbutton{
 	position: relative;
-	margin-top:20px;	
+	margin-top:120px;	
 	text-align: center;
-	display: block;
-	width: 100%;
-	clear: both;
 }
 .ablnavbutton .navbuttonablleft, .ablnavbutton .navbuttonablright{
 	background: rgba(0,0,0,0);
@@ -686,9 +666,6 @@ header p:last-of-type{
 	position: relative;
 	margin-top: 10px;
 	text-align: center;
-	display: block;
-	width: 100%;
-	clear: both;
 }
 
 .circlebuttonabl{
@@ -713,7 +690,6 @@ header p:last-of-type{
 	border-width: 2px;
 	border-style: none none solid none;
 	border-color: #cecece;
-	display: flow-root;
 }
 
 /*--------------------*Ablation Compare Section------------------------*/
@@ -1021,6 +997,7 @@ footer{
 	.realresults {
 		height: auto;
 		min-height: 480px;
+		margin-bottom: 20px;
 	}
 
 	#realresultstotal p,
@@ -1072,6 +1049,7 @@ footer{
 	.SyntheticCarousel {
 		height: auto;
 		min-height: 480px;
+		margin-bottom: 20px;
 	}
 
 	.Input_GTSlider {
@@ -1137,6 +1115,7 @@ footer{
 	.AblationResults {
 		height: auto;
 		min-height: 350px;
+		margin-bottom: 20px;
 	}
 
 	.compareinputsabl {
