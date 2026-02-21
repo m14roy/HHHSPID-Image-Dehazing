@@ -311,7 +311,7 @@ header p:last-of-type{
 
 .realnavbutton{
 	position: relative;
-	margin-top:350px;	
+	margin-top:15px;	
 	text-align: center;
 }
 .realnavbutton .navbuttonrealleft, .realnavbutton .navbuttonrealright{
@@ -452,7 +452,7 @@ header p:last-of-type{
 }
 .syntheticnavbuttonouter{
 	position: relative;
-	margin-top:200px;		
+	margin-top:15px;		
 	text-align: center;
 }
 
@@ -632,7 +632,7 @@ header p:last-of-type{
 
 .ablnavbutton{
 	position: relative;
-	margin-top:120px;	
+	margin-top:10px;	
 	text-align: center;
 }
 .ablnavbutton .navbuttonablleft, .ablnavbutton .navbuttonablright{
@@ -997,7 +997,6 @@ footer{
 	.realresults {
 		height: auto;
 		min-height: 480px;
-		margin-bottom: 20px;
 	}
 
 	#realresultstotal p,
@@ -1022,7 +1021,6 @@ footer{
 		max-width: 100%;
 		grid-template-columns: auto auto;
 		max-height: none;
-		margin-bottom: 20px;
 	}
 
 	.comparegrid-item img {
@@ -1038,18 +1036,17 @@ footer{
 	}
 
 	.realnavbutton {
-		margin-top: 50px;
+		margin-top: 30px;
 		position: relative;
 	}
 
 	.myrealimagecircularbuttons{
-		margin-top: 40px;
+		margin-top: 25px;
 	}
 
 	.SyntheticCarousel {
 		height: auto;
 		min-height: 480px;
-		margin-bottom: 20px;
 	}
 
 	.Input_GTSlider {
@@ -1069,7 +1066,6 @@ footer{
 		max-width: 100%;
 		grid-template-columns: auto auto;
 		max-height: none;
-		margin-bottom: 20px;
 	}
 
 	.comparegrid-itemSynthetic img {
@@ -1087,8 +1083,8 @@ footer{
 	.syntheticnavbuttonIPGT {
 		float: none;
 		width: 100%;
-		margin-bottom: 30px;
-		margin-top: 30px;
+		margin-bottom: 20px;
+		margin-top: 20px;
 		display: flex;
 		justify-content: center;
 		gap: 8px;
@@ -1104,18 +1100,17 @@ footer{
 	}
 
 	.syntheticnavbuttonouter {
-		margin-top: 50px;
+		margin-top: 30px;
 		position: relative;
 	}
 
 	.mysynthimagecircularbuttons{
-		margin-top: 40px;
+		margin-top: 25px;
 	}
 
 	.AblationResults {
 		height: auto;
 		min-height: 350px;
-		margin-bottom: 20px;
 	}
 
 	.compareinputsabl {
@@ -1135,7 +1130,6 @@ footer{
 		max-width: 100%;
 		grid-template-columns: auto auto;
 		max-height: none;
-		margin-bottom: 20px;
 	}
 
 	.comparegrid-abl img {
@@ -1151,12 +1145,12 @@ footer{
 	}
 
 	.ablnavbutton {
-		margin-top: 50px;
+		margin-top: 25px;
 		position: relative;
 	}
 
 	.myablimagecircularbuttons{
-		margin-top: 40px;
+		margin-top: 25px;
 	}
 
 	.circlebutton,
