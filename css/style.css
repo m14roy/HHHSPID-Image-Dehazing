@@ -313,6 +313,7 @@ header p:last-of-type{
 	position: relative;
 	margin-top:15px;	
 	text-align: center;
+	clear: both;
 }
 .realnavbutton .navbuttonrealleft, .realnavbutton .navbuttonrealright{
 	background: rgba(0,0,0,0);
@@ -454,6 +455,7 @@ header p:last-of-type{
 	position: relative;
 	margin-top:15px;		
 	text-align: center;
+	clear: both;
 }
 
 .syntheticnavbuttonIPGT .navbuttonsynthIP,.syntheticnavbuttonIPGT .navbuttonsynthGT{
@@ -634,6 +636,7 @@ header p:last-of-type{
 	position: relative;
 	margin-top:10px;	
 	text-align: center;
+	clear: both;
 }
 .ablnavbutton .navbuttonablleft, .ablnavbutton .navbuttonablright{
 	background: rgba(0,0,0,0);
@@ -1036,12 +1039,11 @@ footer{
 	}
 
 	.realnavbutton {
-		margin-top: 30px;
-		position: relative;
+		margin-top: 50px;
 	}
 
 	.myrealimagecircularbuttons{
-		margin-top: 25px;
+		margin-top: 40px;
 	}
 
 	.SyntheticCarousel {
@@ -1083,8 +1085,8 @@ footer{
 	.syntheticnavbuttonIPGT {
 		float: none;
 		width: 100%;
-		margin-bottom: 20px;
-		margin-top: 20px;
+		margin-bottom: 30px;
+		margin-top: 30px;
 		display: flex;
 		justify-content: center;
 		gap: 8px;
@@ -1100,12 +1102,11 @@ footer{
 	}
 
 	.syntheticnavbuttonouter {
-		margin-top: 30px;
-		position: relative;
+		margin-top: 50px;
 	}
 
 	.mysynthimagecircularbuttons{
-		margin-top: 25px;
+		margin-top: 40px;
 	}
 
 	.AblationResults {
@@ -1145,12 +1146,11 @@ footer{
 	}
 
 	.ablnavbutton {
-		margin-top: 25px;
-		position: relative;
+		margin-top: 50px;
 	}
 
 	.myablimagecircularbuttons{
-		margin-top: 25px;
+		margin-top: 40px;
 	}
 
 	.circlebutton,
